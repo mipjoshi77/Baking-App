@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Recipe Activity Dimensions-->
+    <dimen name="error_message_text_view_text_size">20sp</dimen>
+    <dimen name="progress_bar_layout_width">42dp</dimen>
+    <dimen name="progress_bar_layout_height">42dp</dimen>
+
+    <!-- Recipe Activity RV Dimensions-->
+    <dimen name="card_view_layout_margin">8dp</dimen>
+    <dimen name="card_view_app_corner_radius">8dp</dimen>
+    <dimen name="recipe_image_layout_height">194dp</dimen>
+    <dimen name="recipe_name_layout_margin_top">200dp</dimen>
+    <dimen name="recipe_name_text_size">22sp</dimen>
+
+
+</resources>

@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Recipe Cook Book</string>
+
+    <string name="error_message">\t\t\tRecipe data not available. \nPlease try again after sometime</string>
+</resources>
