@@ -25,7 +25,7 @@ public class Step implements Parcelable {
     private String thumbnailURL;
 
     public Integer getId() {
-        return id;
+        return id+1;
     }
 
     public void setId(Integer id) {
