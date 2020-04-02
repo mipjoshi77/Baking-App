@@ -55,7 +55,7 @@ public class RecipeDetailsActivity extends AppCompatActivity implements RecipeDe
 
     @Override
     public void passStepClickedDataToActivity(int position) {
-        StepDetailFragment stepDetailFragment = new StepDetailFragment();
+        StepDetailFragment stepDetailFragment = new StepDetailFragment(stepList.get(position));
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction()
                 .replace(R.id.recipe_detail_container, stepDetailFragment)

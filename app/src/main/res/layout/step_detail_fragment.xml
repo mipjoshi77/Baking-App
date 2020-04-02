@@ -4,14 +4,16 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     
-<!--    <com.google.android.exoplayer2.ui.SimpleExoPlayerView-->
-<!--        android:id="@+id/player_view"-->
-<!--        android:layout_width="0dp"-->
-<!--        android:layout_height="0dp" />-->
-
-    <TextView
+    <com.google.android.exoplayer2.ui.SimpleExoPlayerView
+        android:id="@+id/player_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="RV Adapter -> Fragment -> Activity -> Fragment communication working"/>
+        android:layout_height="350dp"
+        android:visibility="visible"
+        android:padding="8dp"/>
+
+<!--    <TextView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:text="RV Adapter -> Fragment -> Activity -> Fragment communication working"/>-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
