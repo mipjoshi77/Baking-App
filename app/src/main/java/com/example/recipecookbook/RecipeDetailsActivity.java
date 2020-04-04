@@ -26,12 +26,16 @@ public class RecipeDetailsActivity extends AppCompatActivity implements RecipeDe
     private RecipeDetailsActivityBinding binding;
     private View view;
 
+    private boolean mTwoPane;
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = RecipeDetailsActivityBinding.inflate(getLayoutInflater());
         view = binding.getRoot();
         setContentView(view);
+
+
 
         Intent intentThatStartedThisActivity = getIntent();
 
@@ -41,6 +45,18 @@ public class RecipeDetailsActivity extends AppCompatActivity implements RecipeDe
             stepList = recipe.getSteps();
             Log.d("MAVERICK", "test detail-activity-data recipe name: " +recipe.getName());
         }
+
+//        if (binding.stepDetailFragmentLayout != null) {
+//            mTwoPane = true;
+//            StepDetailFragment stepDetailFragment = new StepDetailFragment(stepList.get(0));
+//            FragmentManager fragmentManager = getSupportFragmentManager();
+//            fragmentManager.beginTransaction()
+//                    .add(R.id.step_detail_container, stepDetailFragment)
+//                    .commit();
+//        }
+//        else {
+//            mTwoPane = false;
+//        }
 
         setupRecipeDetailFragment();
     }
