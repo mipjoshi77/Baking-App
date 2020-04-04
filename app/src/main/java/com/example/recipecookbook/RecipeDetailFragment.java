@@ -1,6 +1,7 @@
 package com.example.recipecookbook;
 
 import android.content.Context;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,8 +17,10 @@ import com.example.recipecookbook.adapters.IngredientListAdapter;
 import com.example.recipecookbook.adapters.StepListAdapter;
 import com.example.recipecookbook.databinding.RecipeDetailFragmentBinding;
 import com.example.recipecookbook.model.Ingredient;
+import com.example.recipecookbook.model.Recipe;
 import com.example.recipecookbook.model.Step;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class RecipeDetailFragment extends Fragment implements StepListAdapter.OnStepClickListener {
@@ -31,14 +34,23 @@ public class RecipeDetailFragment extends Fragment implements StepListAdapter.On
 
     private RecyclerView stepsRecyclerView;
 
+    private ArrayList<Recipe> recipeArrayList;
+    private Recipe recipe;
+    private int recipeCurrentPosition;
+
     private List<Ingredient> ingredientList;
     private List<Step> stepList;
     private PassStepClickedDataToActivity passStepClickedDataToActivity;
 
-    public RecipeDetailFragment(List<Ingredient> ingredientList, List<Step> stepList) {
-        this.ingredientList = ingredientList;
-        this.stepList = stepList;
+    private LinearLayoutManager linearLayoutManager;
+
+    public RecipeDetailFragment() {
     }
+
+//    public RecipeDetailFragment(List<Ingredient> ingredientList, List<Step> stepList) {
+//        this.ingredientList = ingredientList;
+//        this.stepList = stepList;
+//    }
 
     public interface PassStepClickedDataToActivity {
         void passStepClickedDataToActivity(int position);
@@ -47,6 +59,17 @@ public class RecipeDetailFragment extends Fragment implements StepListAdapter.On
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        if (savedInstanceState != null) {
+            setFragmentDataFromSavedInstanceState(savedInstanceState);
+        }
+        else {
+            setFragmentDataFromPassedBundle();
+        }
+
+        recipe = recipeArrayList.get(recipeCurrentPosition);
+
+        ingredientList = recipe.getIngredients();
+        stepList = recipe.getSteps();
 
         binding = RecipeDetailFragmentBinding.inflate(getLayoutInflater());
         rootView = binding.getRoot();
@@ -55,6 +78,18 @@ public class RecipeDetailFragment extends Fragment implements StepListAdapter.On
         setIngredientsView();
         setStepsView();
         return rootView;
+    }
+
+    private void setFragmentDataFromPassedBundle() {
+        assert getArguments() != null;
+        recipeArrayList = getArguments().getParcelableArrayList(Constants.INTENT_RECIPES);
+        recipeCurrentPosition = getArguments().getInt(Constants.RECIPE_POSITION);
+    }
+
+    private void setFragmentDataFromSavedInstanceState(Bundle savedInstanceState) {
+        recipeArrayList = savedInstanceState.getParcelableArrayList(Constants.INTENT_RECIPES);
+        recipeCurrentPosition = savedInstanceState.getInt(Constants.RECIPE_POSITION);
+
     }
 
     @Override
@@ -69,7 +104,13 @@ public class RecipeDetailFragment extends Fragment implements StepListAdapter.On
     }
 
     private void setIngredientsView() {
-        ingredientsRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
+        if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
+            linearLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
+        }
+        else {
+            linearLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
+        }
+        ingredientsRecyclerView.setLayoutManager(linearLayoutManager);
         ingredientListAdapter = new IngredientListAdapter(ingredientList, getContext());
         ingredientsRecyclerView.setAdapter(ingredientListAdapter);
     }
@@ -83,5 +124,12 @@ public class RecipeDetailFragment extends Fragment implements StepListAdapter.On
     @Override
     public void onStepClicked(int position) {
         passStepClickedDataToActivity.passStepClickedDataToActivity(position);
+    }
+
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putParcelableArrayList(Constants.INTENT_RECIPES, recipeArrayList);
+        outState.putInt(Constants.RECIPE_POSITION, recipeCurrentPosition);
     }
 }

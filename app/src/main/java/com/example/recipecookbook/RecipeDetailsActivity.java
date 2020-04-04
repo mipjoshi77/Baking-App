@@ -15,13 +15,19 @@ import com.example.recipecookbook.model.Ingredient;
 import com.example.recipecookbook.model.Recipe;
 import com.example.recipecookbook.model.Step;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class RecipeDetailsActivity extends AppCompatActivity implements RecipeDetailFragment.PassStepClickedDataToActivity {
 
+    private ArrayList<Recipe> recipeArrayList;
+    private int recipeCurrentPosition;
+
     private Recipe recipe;
     private List<Ingredient> ingredientList;
     private List<Step> stepList;
+
+    private Bundle recipeDataBundle;
 
     private RecipeDetailsActivityBinding binding;
     private View view;
@@ -37,13 +43,20 @@ public class RecipeDetailsActivity extends AppCompatActivity implements RecipeDe
 
 
 
-        Intent intentThatStartedThisActivity = getIntent();
+//        Intent intentThatStartedThisActivity = getIntent();
+        recipeDataBundle = getIntent().getExtras();
 
-        if (intentThatStartedThisActivity != null) {
-            recipe = intentThatStartedThisActivity.getParcelableExtra(Constants.INTENT_RECIPE);
+        if (recipeDataBundle != null) {
+//            recipeArrayList = intentThatStartedThisActivity.getParcelableExtra(Constants.INTENT_RECIPES);
+//            recipeCurrentPosition = intentThatStartedThisActivity.getIntExtra(Constants.RECIPE_POSITION, 0);
+            recipeArrayList = recipeDataBundle.getParcelableArrayList(Constants.INTENT_RECIPES);
+            recipeCurrentPosition = recipeDataBundle.getInt(Constants.RECIPE_POSITION);
+            recipe = recipeArrayList.get(recipeCurrentPosition);
+            Log.d("MAVERICK", "onCreate: current position: " +recipeCurrentPosition);
+            Log.d("MAVERICK", "test detail-activity-data recipe name: " +recipe.getName());
+
             ingredientList = recipe.getIngredients();
             stepList = recipe.getSteps();
-            Log.d("MAVERICK", "test detail-activity-data recipe name: " +recipe.getName());
         }
 
 //        if (binding.stepDetailFragmentLayout != null) {
@@ -62,7 +75,8 @@ public class RecipeDetailsActivity extends AppCompatActivity implements RecipeDe
     }
 
     private void setupRecipeDetailFragment() {
-        RecipeDetailFragment recipeDetailFragment = new RecipeDetailFragment(ingredientList, stepList);
+        RecipeDetailFragment recipeDetailFragment = new RecipeDetailFragment();
+        recipeDetailFragment.setArguments(recipeDataBundle);
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction()
                 .add(R.id.recipe_detail_container, recipeDetailFragment)

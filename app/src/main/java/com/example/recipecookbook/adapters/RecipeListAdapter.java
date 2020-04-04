@@ -15,6 +15,7 @@ import com.example.recipecookbook.R;
 import com.example.recipecookbook.model.Recipe;
 import com.google.android.material.card.MaterialCardView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class RecipeListAdapter extends RecyclerView.Adapter<RecipeListAdapter.RecipeListAdapterViewHolder> {
@@ -22,6 +23,7 @@ public class RecipeListAdapter extends RecyclerView.Adapter<RecipeListAdapter.Re
     private List<Recipe> recipeList;
     private Context context;
     private RecipeItemOnClickHandler recipeItemOnClickHandler;
+    private ArrayList<Recipe> recipeArrayList;
 
     public RecipeListAdapter(List<Recipe> recipeList, Context context, RecipeItemOnClickHandler recipeItemOnClickHandler) {
         this.recipeList = recipeList;
@@ -57,7 +59,7 @@ public class RecipeListAdapter extends RecyclerView.Adapter<RecipeListAdapter.Re
     }
 
     public interface RecipeItemOnClickHandler {
-        void onClick(int position, Recipe recipe);
+        void onClick(int position, ArrayList<Recipe> recipeArrayList);
     }
 
     public class RecipeListAdapterViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
@@ -77,7 +79,9 @@ public class RecipeListAdapter extends RecyclerView.Adapter<RecipeListAdapter.Re
         @Override
         public void onClick(View view) {
             int position = getAdapterPosition();
-            recipeItemOnClickHandler.onClick(position, recipeList.get(position));
+            recipeArrayList = new ArrayList<>();
+            recipeArrayList.add(recipeList.get(position));
+            recipeItemOnClickHandler.onClick(position, recipeArrayList);
         }
     }
 }

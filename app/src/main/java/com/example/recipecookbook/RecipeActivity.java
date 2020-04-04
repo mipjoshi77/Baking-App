@@ -58,9 +58,15 @@ public class RecipeActivity extends AppCompatActivity implements RecipeListAdapt
     }
 
     @Override
-    public void onClick(int position, Recipe recipe) {
+    public void onClick(int position, ArrayList<Recipe> recipeArrayList) {
+        Bundle recipeDataBundle = new Bundle();
+        recipeDataBundle.putParcelableArrayList(Constants.INTENT_RECIPES, recipeArrayList);
+        recipeDataBundle.putInt(Constants.RECIPE_POSITION, position);
+
         Intent startRecipeDetailsActivity = new Intent(this, RecipeDetailsActivity.class);
-        startRecipeDetailsActivity.putExtra(Constants.INTENT_RECIPE, recipe);
+        startRecipeDetailsActivity.putExtras(recipeDataBundle);
+//        startRecipeDetailsActivity.putParcelableArrayListExtra(Constants.INTENT_RECIPES, recipeArrayList);
+//        startRecipeDetailsActivity.putExtra(Constants.RECIPE_POSITION, position);
         startActivity(startRecipeDetailsActivity);
     }
 }
