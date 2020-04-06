@@ -3,6 +3,7 @@ package com.example.recipecookbook;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -44,8 +45,8 @@ public class RecipeDetailFragment extends Fragment implements StepListAdapter.On
 
     private LinearLayoutManager linearLayoutManager;
 
-    public RecipeDetailFragment() {
-    }
+//    public RecipeDetailFragment() {
+//    }
 
 //    public RecipeDetailFragment(List<Ingredient> ingredientList, List<Step> stepList) {
 //        this.ingredientList = ingredientList;
@@ -72,12 +73,13 @@ public class RecipeDetailFragment extends Fragment implements StepListAdapter.On
         stepList = recipe.getSteps();
 
         binding = RecipeDetailFragmentBinding.inflate(getLayoutInflater());
-        rootView = binding.getRoot();
+//        rootView = binding.getRoot();
         ingredientsRecyclerView = binding.recipeIngredientsRv;
         stepsRecyclerView = binding.recipeStepsRv;
+        Log.d("SNIPER", "onCreateView: is this being called twice ? ");
         setIngredientsView();
         setStepsView();
-        return rootView;
+        return binding.getRoot();
     }
 
     private void setFragmentDataFromPassedBundle() {
@@ -104,13 +106,6 @@ public class RecipeDetailFragment extends Fragment implements StepListAdapter.On
     }
 
     private void setIngredientsView() {
-        if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
-            linearLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
-        }
-        else {
-            linearLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
-        }
-        ingredientsRecyclerView.setLayoutManager(linearLayoutManager);
         ingredientListAdapter = new IngredientListAdapter(ingredientList, getContext());
         ingredientsRecyclerView.setAdapter(ingredientListAdapter);
     }

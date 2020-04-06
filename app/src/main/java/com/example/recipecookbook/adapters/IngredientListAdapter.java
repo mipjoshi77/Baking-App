@@ -1,6 +1,7 @@
 package com.example.recipecookbook.adapters;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,6 +23,7 @@ public class IngredientListAdapter extends RecyclerView.Adapter<IngredientListAd
     public IngredientListAdapter(List<Ingredient> ingredientList, Context context) {
         this.ingredientList = ingredientList;
         this.context = context;
+        Log.d("SNIPER", "IngredientListAdapter: ingredient list size: " +ingredientList.size());
     }
 
     @NonNull

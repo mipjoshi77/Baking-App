@@ -1,6 +1,7 @@
 package com.example.recipecookbook;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.media.session.MediaSessionCompat;
@@ -9,13 +10,16 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.recipecookbook.databinding.StepDetailFragmentBinding;
+import com.example.recipecookbook.model.Recipe;
 import com.example.recipecookbook.model.Step;
 import com.google.android.exoplayer2.DefaultLoadControl;
 import com.google.android.exoplayer2.ExoPlayer;
@@ -35,15 +39,26 @@ import com.google.android.exoplayer2.upstream.DataSource;
 import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory;
 import com.google.android.exoplayer2.util.Util;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class StepDetailFragment extends Fragment {
 
     private static final String TAG = StepDetailFragment.class.getSimpleName();
 
+    private ArrayList<Recipe> recipeArrayList;
+    private int recipeCurrentPosition;
+    private List<Step> stepList;
+
+
     private StepDetailFragmentBinding binding;
     private View rootView;
     private TextView stepDescription;
+    private Button previousStep;
+    private Button nextStep;
 
     private Step currentStep;
+    private int stepPosition;
 
     private PlayerView playerView;
     private SimpleExoPlayer exoPlayer;
@@ -54,13 +69,22 @@ public class StepDetailFragment extends Fragment {
     private boolean playWhenReady = true;
     private int currentWindow = 0;
 
+    private OnStepChangeListener onStepChangeListener;
+
+    private int lastIndex;
+
     public StepDetailFragment() {
     }
 
     private long playbackPosition = 0;
 
-    public StepDetailFragment(Step currentStep) {
+    public StepDetailFragment(Step currentStep, int stepPosition) {
         this.currentStep = currentStep;
+        this.stepPosition = stepPosition;
+    }
+
+    public interface OnStepChangeListener {
+        void onStepChangeClicked(int position);
     }
 
     @Nullable
@@ -70,22 +94,88 @@ public class StepDetailFragment extends Fragment {
         rootView = binding.getRoot();
         playerView = binding.playerView;
         stepDescription = binding.stepDescription;
+        previousStep = binding.previousStep;
+        nextStep = binding.nextStep;
+
+        rootView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
 
         if (savedInstanceState != null) {
             this.currentStep = savedInstanceState.getParcelable("SELECTED_STEP");
             Log.d("BUNDLE", "Is passing the data, step: " +currentStep);
+            this.stepPosition = savedInstanceState.getInt("STEP_POSITION");
         }
+
+        assert getArguments() != null;
+        recipeArrayList = getArguments().getParcelableArrayList(Constants.INTENT_RECIPES);
+        recipeCurrentPosition = getArguments().getInt(Constants.RECIPE_POSITION);
+        stepList = recipeArrayList.get(recipeCurrentPosition).getSteps();
+
 
         stepDescription.setText(currentStep.getDescription());
         playbackStateListener = new PlaybackStateListener();
         initializeMediaSession();
+
+        int lastIndex = stepList.size() - 1;
+
+        if (currentStep.getId() == 1) previousStep.setVisibility(View.GONE);
+
+        if (currentStep.getId() == stepList.get(lastIndex).getId()) nextStep.setVisibility(View.GONE);
+
+
+        previousStep.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (currentStep.getId() > 1) {
+                    if (exoPlayer != null) releasePlayer();
+                    stepPosition--;
+                    onStepChangeListener.onStepChangeClicked(stepPosition);
+                }
+                else {
+                    Toast.makeText(getActivity(),"This is the first step", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        nextStep.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int lastIndex = stepList.size() - 1;
+                if (currentStep.getId() < stepList.get(lastIndex).getId()) {
+                    if (exoPlayer != null) releasePlayer();
+                    stepPosition++;
+                    onStepChangeListener.onStepChangeClicked(stepPosition);
+                }
+                else {
+                    Toast.makeText(getContext(),"This is the Last step", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+//        getDataFromPassedBundle();
+
         return rootView;
     }
+
+//    private void getDataFromPassedBundle() {
+//
+//    }
 
 //    @Override
 //    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
 //        initializeExoPlayer(Uri.parse(currentStep.getVideoURL()));
 //    }
+
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+
+        try {
+            onStepChangeListener = (OnStepChangeListener) context;
+        } catch (ClassCastException e) {
+            throw new ClassCastException(context.toString() + "must implement OnStepChangeListener");
+        }
+    }
 
     @Override
     public void onStart() {
@@ -260,6 +350,13 @@ public class StepDetailFragment extends Fragment {
         public void onSkipToPrevious() {
             exoPlayer.seekTo(0);
         }
+    }
+
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putParcelable("SELECTED_STEP", currentStep);
+        outState.putInt("STEP_POSITION", stepPosition);
     }
 
 }

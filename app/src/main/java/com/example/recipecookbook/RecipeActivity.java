@@ -15,6 +15,7 @@ import com.example.recipecookbook.adapters.RecipeListAdapter;
 import com.example.recipecookbook.databinding.RecipeActivityBinding;
 import com.example.recipecookbook.model.Recipe;
 import com.example.recipecookbook.viewmodels.RecipeViewModel;
+import com.google.android.material.appbar.MaterialToolbar;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,6 +27,7 @@ public class RecipeActivity extends AppCompatActivity implements RecipeListAdapt
 
     private RecipeActivityBinding binding;
     private View view;
+    private MaterialToolbar toolbar;
 
     private RecyclerView recipeRecyclerView;
     private RecipeListAdapter recipeListAdapter;
@@ -36,6 +38,12 @@ public class RecipeActivity extends AppCompatActivity implements RecipeListAdapt
         binding = RecipeActivityBinding.inflate(getLayoutInflater());
         view = binding.getRoot();
         setContentView(view);
+        toolbar = findViewById(R.id.overhead_toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setHomeButtonEnabled(false);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+        getSupportActionBar().setTitle("Recipe Cook Book");
+
         recipeRecyclerView = binding.recipeListRv;
 
         recipeRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
