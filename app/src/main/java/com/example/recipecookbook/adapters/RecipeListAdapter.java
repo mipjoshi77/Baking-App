@@ -23,7 +23,6 @@ public class RecipeListAdapter extends RecyclerView.Adapter<RecipeListAdapter.Re
     private List<Recipe> recipeList;
     private Context context;
     private RecipeItemOnClickHandler recipeItemOnClickHandler;
-    private ArrayList<Recipe> recipeArrayList;
 
     public RecipeListAdapter(List<Recipe> recipeList, Context context, RecipeItemOnClickHandler recipeItemOnClickHandler) {
         this.recipeList = recipeList;
@@ -59,7 +58,7 @@ public class RecipeListAdapter extends RecyclerView.Adapter<RecipeListAdapter.Re
     }
 
     public interface RecipeItemOnClickHandler {
-        void onClick(int position, ArrayList<Recipe> recipeArrayList);
+        void onClick(int position);
     }
 
     public class RecipeListAdapterViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
@@ -79,9 +78,7 @@ public class RecipeListAdapter extends RecyclerView.Adapter<RecipeListAdapter.Re
         @Override
         public void onClick(View view) {
             int position = getAdapterPosition();
-            recipeArrayList = new ArrayList<>();
-            recipeArrayList.add(recipeList.get(position));
-            recipeItemOnClickHandler.onClick(position, recipeArrayList);
+            recipeItemOnClickHandler.onClick(position);
         }
     }
 }

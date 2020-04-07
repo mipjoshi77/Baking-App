@@ -32,6 +32,8 @@ public class RecipeActivity extends AppCompatActivity implements RecipeListAdapt
     private RecyclerView recipeRecyclerView;
     private RecipeListAdapter recipeListAdapter;
 
+    private ArrayList<Recipe> recipeArrayList;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,14 +63,18 @@ public class RecipeActivity extends AppCompatActivity implements RecipeListAdapt
                 Log.d("MAVERICK", "test activity-data recipe name: " +recipes.get(0).getName());
                 recipeListAdapter = new RecipeListAdapter(recipes, getApplicationContext(), RecipeActivity.this);
                 recipeRecyclerView.setAdapter(recipeListAdapter);
+                recipeArrayList = new ArrayList<>(recipes);
+                for (Recipe recipe : recipeArrayList) {
+                    Log.d("BOOM", "onChanged: recipe array list " +recipe.getName());
+                }
             }
         });
     }
 
     @Override
-    public void onClick(int position, ArrayList<Recipe> recipeArrayList) {
+    public void onClick(int position) {
         Bundle recipeDataBundle = new Bundle();
-        recipeDataBundle.putParcelableArrayList(Constants.INTENT_RECIPES, recipeArrayList);
+        recipeDataBundle.putParcelableArrayList(Constants.INTENT_RECIPES, this.recipeArrayList);
         recipeDataBundle.putInt(Constants.RECIPE_POSITION, position);
 
         Intent startRecipeDetailsActivity = new Intent(this, RecipeDetailsActivity.class);
