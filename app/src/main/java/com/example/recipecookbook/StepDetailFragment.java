@@ -21,20 +21,12 @@ import androidx.fragment.app.Fragment;
 import com.example.recipecookbook.databinding.StepDetailFragmentBinding;
 import com.example.recipecookbook.model.Recipe;
 import com.example.recipecookbook.model.Step;
-import com.google.android.exoplayer2.DefaultLoadControl;
 import com.google.android.exoplayer2.ExoPlayer;
-import com.google.android.exoplayer2.ExoPlayerFactory;
-import com.google.android.exoplayer2.LoadControl;
 import com.google.android.exoplayer2.Player;
 import com.google.android.exoplayer2.SimpleExoPlayer;
-import com.google.android.exoplayer2.extractor.DefaultExtractorsFactory;
-import com.google.android.exoplayer2.source.ExtractorMediaSource;
 import com.google.android.exoplayer2.source.MediaSource;
 import com.google.android.exoplayer2.source.ProgressiveMediaSource;
-import com.google.android.exoplayer2.trackselection.DefaultTrackSelector;
-import com.google.android.exoplayer2.trackselection.TrackSelector;
 import com.google.android.exoplayer2.ui.PlayerView;
-import com.google.android.exoplayer2.ui.SimpleExoPlayerView;
 import com.google.android.exoplayer2.upstream.DataSource;
 import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory;
 import com.google.android.exoplayer2.util.Util;
@@ -70,8 +62,6 @@ public class StepDetailFragment extends Fragment {
     private int currentWindow = 0;
 
     private OnStepChangeListener onStepChangeListener;
-
-    private int lastIndex;
 
     public StepDetailFragment() {
     }
@@ -151,20 +141,9 @@ public class StepDetailFragment extends Fragment {
             }
         });
 
-//        getDataFromPassedBundle();
 
         return rootView;
     }
-
-//    private void getDataFromPassedBundle() {
-//
-//    }
-
-//    @Override
-//    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-//        initializeExoPlayer(Uri.parse(currentStep.getVideoURL()));
-//    }
-
 
     @Override
     public void onAttach(@NonNull Context context) {
@@ -234,20 +213,6 @@ public class StepDetailFragment extends Fragment {
             exoPlayer.addListener(playbackStateListener);
             exoPlayer.prepare(mediaSource, false, false);
         }
-//        if (exoPlayer == null) {
-//            TrackSelector trackSelector = new DefaultTrackSelector();
-//            LoadControl loadControl = new DefaultLoadControl();
-//
-//            exoPlayer = ExoPlayerFactory.newSimpleInstance(getActivity(), trackSelector, loadControl);
-//            playerView.setPlayer(exoPlayer);
-//
-//            String userAgent = Util.getUserAgent(getActivity(), getString(R.string.app_name));
-//
-//            MediaSource mediaSource = new ExtractorMediaSource(videoUrl, new DefaultDataSourceFactory(getActivity(), userAgent), new DefaultExtractorsFactory(), null, null);
-//            exoPlayer.addListener(playbackStateListener);
-//            exoPlayer.prepare(mediaSource);
-//            exoPlayer.setPlayWhenReady(true);
-//        }
     }
 
     private MediaSource buildMediaSource(Uri uri) {

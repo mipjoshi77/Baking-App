@@ -1,10 +1,8 @@
 package com.example.recipecookbook;
 
-import android.content.Intent;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.util.Log;
 import android.view.View;
 
@@ -52,13 +50,10 @@ public class RecipeDetailsActivity extends AppCompatActivity implements RecipeDe
         setSupportActionBar(toolbar);
 
 
-//        Intent intentThatStartedThisActivity = getIntent();
         recipeDataBundle = getIntent().getExtras();
 
         recipeArrayList = new ArrayList<>();
         if (recipeDataBundle != null) {
-//            recipeArrayList = intentThatStartedThisActivity.getParcelableExtra(Constants.INTENT_RECIPES);
-//            recipeCurrentPosition = intentThatStartedThisActivity.getIntExtra(Constants.RECIPE_POSITION, 0);
             recipeArrayList = recipeDataBundle.getParcelableArrayList(Constants.INTENT_RECIPES);
             recipeCurrentPosition = recipeDataBundle.getInt(Constants.RECIPE_POSITION);
             recipe = recipeArrayList.get(recipeCurrentPosition);
@@ -143,11 +138,4 @@ public class RecipeDetailsActivity extends AppCompatActivity implements RecipeDe
         passStepClickedDataToActivity(position);
     }
 
-//    @Override
-//    public void onBackPressed() {
-//        int count = getSupportFragmentManager().getBackStackEntryCount();
-//
-//        if (count == 0) super.onBackPressed();
-//        else setupRecipeDetailFragment();
-//    }
 }

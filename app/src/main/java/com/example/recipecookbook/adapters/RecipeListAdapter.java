@@ -15,7 +15,6 @@ import com.example.recipecookbook.R;
 import com.example.recipecookbook.model.Recipe;
 import com.google.android.material.card.MaterialCardView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class RecipeListAdapter extends RecyclerView.Adapter<RecipeListAdapter.RecipeListAdapterViewHolder> {

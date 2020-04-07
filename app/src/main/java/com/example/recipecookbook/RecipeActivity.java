@@ -79,8 +79,6 @@ public class RecipeActivity extends AppCompatActivity implements RecipeListAdapt
 
         Intent startRecipeDetailsActivity = new Intent(this, RecipeDetailsActivity.class);
         startRecipeDetailsActivity.putExtras(recipeDataBundle);
-//        startRecipeDetailsActivity.putParcelableArrayListExtra(Constants.INTENT_RECIPES, recipeArrayList);
-//        startRecipeDetailsActivity.putExtra(Constants.RECIPE_POSITION, position);
         startActivity(startRecipeDetailsActivity);
     }
 }

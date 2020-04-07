@@ -1,7 +1,6 @@
 package com.example.recipecookbook;
 
 import android.content.Context;
-import android.content.res.Configuration;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -27,7 +26,6 @@ import java.util.List;
 public class RecipeDetailFragment extends Fragment implements StepListAdapter.OnStepClickListener {
 
     private RecipeDetailFragmentBinding binding;
-    private View rootView;
 
     private RecyclerView ingredientsRecyclerView;
     private IngredientListAdapter ingredientListAdapter;
@@ -45,13 +43,6 @@ public class RecipeDetailFragment extends Fragment implements StepListAdapter.On
 
     private LinearLayoutManager linearLayoutManager;
 
-//    public RecipeDetailFragment() {
-//    }
-
-//    public RecipeDetailFragment(List<Ingredient> ingredientList, List<Step> stepList) {
-//        this.ingredientList = ingredientList;
-//        this.stepList = stepList;
-//    }
 
     public interface PassStepClickedDataToActivity {
         void passStepClickedDataToActivity(int position);
@@ -73,7 +64,6 @@ public class RecipeDetailFragment extends Fragment implements StepListAdapter.On
         stepList = recipe.getSteps();
 
         binding = RecipeDetailFragmentBinding.inflate(getLayoutInflater());
-//        rootView = binding.getRoot();
         ingredientsRecyclerView = binding.recipeIngredientsRv;
         stepsRecyclerView = binding.recipeStepsRv;
         Log.d("SNIPER", "onCreateView: is this being called twice ? ");
