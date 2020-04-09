@@ -1,0 +1,51 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/recipe_linear_layout"
+    android:tag="tablet-land"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:gravity="center_horizontal">
+
+    <include
+        layout="@layout/tool_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:weightSum="1">
+
+        <FrameLayout
+            android:id="@+id/recipe_detail_container"
+            android:layout_width="500dp"
+            android:scaleType="centerInside"
+            android:layout_height="match_parent" >
+
+        </FrameLayout>
+
+        <!-- A small divider -->
+        <View
+            android:id="@+id/divider_line"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="45dp"
+            android:background="@android:color/black"
+            android:layout_marginLeft="45dp" />
+
+        <FrameLayout
+            android:id="@+id/step_detail_container_tablet_land"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp" />
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -73,26 +73,34 @@ public class RecipeDetailsActivity extends AppCompatActivity implements RecipeDe
         getSupportActionBar().setHomeAsUpIndicator(upArrow);
 
 
-//        if (binding.stepDetailFragmentLayout != null) {
-//            mTwoPane = true;
-//            StepDetailFragment stepDetailFragment = new StepDetailFragment(stepList.get(0));
+        if (binding.recipeLinearLayout != null && binding.recipeLinearLayout.getTag().equals("tablet-land")) {
+            mTwoPane = true;
+//            StepDetailFragment stepDetailFragment = new StepDetailFragment(stepList.get(0), 0);
+//            stepDetailFragment.setArguments(recipeDataBundle);
 //            FragmentManager fragmentManager = getSupportFragmentManager();
 //            fragmentManager.beginTransaction()
-//                    .add(R.id.step_detail_container, stepDetailFragment)
+//                    .replace(R.id.step_detail_container_tablet_land, stepDetailFragment)
+//                    .addToBackStack(RECIPE_STEP_DETAIL)
 //                    .commit();
-//        }
-//        else {
-//            mTwoPane = false;
-//        }
+        }
+        else {
+            mTwoPane = false;
+        }
 
-        if (savedInstanceState == null) setupRecipeDetailFragment();
+        if (savedInstanceState == null) {
+            setupRecipeDetailFragment();
+            if (mTwoPane) {
+                setupStepDetailFragment(0);
+            }
+
+        }
 
 
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 FragmentManager fragmentManager = getSupportFragmentManager();
-                if (binding.stepDetailFragmentLayout == null) {
+                if (binding.recipeLinearLayout == null) {
                     if (fragmentManager.getBackStackEntryCount() > 1) {
                         fragmentManager.popBackStack(RECIPE_DETAIL, 0);
                     }
@@ -112,25 +120,48 @@ public class RecipeDetailsActivity extends AppCompatActivity implements RecipeDe
         recipeDetailFragment.setArguments(recipeDataBundle);
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction()
-                .replace(R.id.recipe_detail_container, recipeDetailFragment)
-                .addToBackStack(RECIPE_DETAIL)
-                .commit();
+                    .replace(R.id.recipe_detail_container, recipeDetailFragment)
+                    .addToBackStack(RECIPE_DETAIL)
+                    .commit();
 
         Log.d("EUREKA", "setupRecipeDetailFragment: fragment count: " +getSupportFragmentManager().getBackStackEntryCount());
     }
 
-    @Override
-    public void passStepClickedDataToActivity(int position) {
+    private void setupStepDetailFragment(int position) {
         recipeDataBundle.putInt(Constants.STEP_POSITION, position);
         StepDetailFragment stepDetailFragment = new StepDetailFragment(stepList.get(position), position);
         stepDetailFragment.setArguments(recipeDataBundle);
         FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction()
-                .replace(R.id.recipe_detail_container, stepDetailFragment)
-                .addToBackStack(RECIPE_STEP_DETAIL)
-                .commit();
+
+        if (mTwoPane) {
+            fragmentManager.beginTransaction()
+                    .replace(R.id.step_detail_container_tablet_land, stepDetailFragment)
+                    .addToBackStack(RECIPE_STEP_DETAIL)
+                    .commit();
+        }
+        else {
+            fragmentManager.beginTransaction()
+                    .replace(R.id.recipe_detail_container, stepDetailFragment)
+                    .addToBackStack(RECIPE_STEP_DETAIL)
+                    .commit();
+        }
 
         Log.d("EUREKA", "passStepClickedDataToActivity: fragment count: " +getSupportFragmentManager().getBackStackEntryCount());
+    }
+
+    @Override
+    public void passStepClickedDataToActivity(int position) {
+        setupStepDetailFragment(position);
+//        recipeDataBundle.putInt(Constants.STEP_POSITION, position);
+//        StepDetailFragment stepDetailFragment = new StepDetailFragment(stepList.get(position), position);
+//        stepDetailFragment.setArguments(recipeDataBundle);
+//        FragmentManager fragmentManager = getSupportFragmentManager();
+//        fragmentManager.beginTransaction()
+//                .replace(R.id.recipe_detail_container, stepDetailFragment)
+//                .addToBackStack(RECIPE_STEP_DETAIL)
+//                .commit();
+//
+//        Log.d("EUREKA", "passStepClickedDataToActivity: fragment count: " +getSupportFragmentManager().getBackStackEntryCount());
     }
 
     @Override
