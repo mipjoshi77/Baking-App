@@ -75,13 +75,6 @@ public class RecipeDetailsActivity extends AppCompatActivity implements RecipeDe
 
         if (binding.recipeLinearLayout != null && binding.recipeLinearLayout.getTag().equals("tablet-land")) {
             mTwoPane = true;
-//            StepDetailFragment stepDetailFragment = new StepDetailFragment(stepList.get(0), 0);
-//            stepDetailFragment.setArguments(recipeDataBundle);
-//            FragmentManager fragmentManager = getSupportFragmentManager();
-//            fragmentManager.beginTransaction()
-//                    .replace(R.id.step_detail_container_tablet_land, stepDetailFragment)
-//                    .addToBackStack(RECIPE_STEP_DETAIL)
-//                    .commit();
         }
         else {
             mTwoPane = false;
@@ -152,21 +145,19 @@ public class RecipeDetailsActivity extends AppCompatActivity implements RecipeDe
     @Override
     public void passStepClickedDataToActivity(int position) {
         setupStepDetailFragment(position);
-//        recipeDataBundle.putInt(Constants.STEP_POSITION, position);
-//        StepDetailFragment stepDetailFragment = new StepDetailFragment(stepList.get(position), position);
-//        stepDetailFragment.setArguments(recipeDataBundle);
-//        FragmentManager fragmentManager = getSupportFragmentManager();
-//        fragmentManager.beginTransaction()
-//                .replace(R.id.recipe_detail_container, stepDetailFragment)
-//                .addToBackStack(RECIPE_STEP_DETAIL)
-//                .commit();
-//
-//        Log.d("EUREKA", "passStepClickedDataToActivity: fragment count: " +getSupportFragmentManager().getBackStackEntryCount());
     }
 
     @Override
     public void onStepChangeClicked(int position) {
         passStepClickedDataToActivity(position);
     }
+
+    //    @Override
+//    public void onBackPressed() {
+//        int count = getSupportFragmentManager().getBackStackEntryCount();
+//
+//        if (count == 0) super.onBackPressed();
+//        else setupRecipeDetailFragment();
+//    }
 
 }
