@@ -13,6 +13,7 @@ import android.view.View;
 
 import com.example.recipecookbook.adapters.RecipeListAdapter;
 import com.example.recipecookbook.databinding.RecipeActivityBinding;
+import com.example.recipecookbook.idlingresource.IdlingResourceUtils;
 import com.example.recipecookbook.model.Recipe;
 import com.example.recipecookbook.viewmodels.RecipeViewModel;
 import com.google.android.material.appbar.MaterialToolbar;
@@ -67,6 +68,7 @@ public class RecipeActivity extends AppCompatActivity implements RecipeListAdapt
                 for (Recipe recipe : recipeArrayList) {
                     Log.d("BOOM", "onChanged: recipe array list " +recipe.getName());
                 }
+                IdlingResourceUtils.setIdlingResourceState(true);
             }
         });
     }

@@ -45,10 +45,28 @@ public class RecipeListAdapter extends RecyclerView.Adapter<RecipeListAdapter.Re
 
         holder.recipeName.setText(recipeName);
 
-        Glide.with(context)
-                .load(recipeImage)
-                .placeholder(R.drawable.ic_launcher_foreground)
-                .into(holder.recipeImage);
+        if (!recipeImage.isEmpty()) {
+            Glide.with(context)
+                    .load(recipeImage)
+                    .placeholder(R.drawable.ic_launcher_foreground)
+                    .into(holder.recipeImage);
+        }
+        else {
+            switch (position) {
+                case 0:
+                    holder.recipeImage.setImageDrawable(context.getResources().getDrawable(R.drawable.nutella_pie));
+                    break;
+                case 1:
+                    holder.recipeImage.setImageDrawable(context.getResources().getDrawable(R.drawable.brownie));
+                    break;
+                case 2:
+                    holder.recipeImage.setImageDrawable(context.getResources().getDrawable(R.drawable.yello_cake));
+                    break;
+                case 3:
+                    holder.recipeImage.setImageDrawable(context.getResources().getDrawable(R.drawable.cheesecake));
+                    break;
+            }
+        }
     }
 
     @Override

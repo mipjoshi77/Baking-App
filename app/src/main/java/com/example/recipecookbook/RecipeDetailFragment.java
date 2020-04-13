@@ -69,6 +69,10 @@ public class RecipeDetailFragment extends Fragment implements StepListAdapter.On
         Log.d("SNIPER", "onCreateView: is this being called twice ? ");
         setIngredientsView();
         setStepsView();
+
+        StringBuilder ingredientListStringBuilder = ingredientListStringBuilder(ingredientList);
+        RecipeWidgetService.startBakingService(getContext(), ingredientListStringBuilder.toString(), recipe.getName());
+
         return binding.getRoot();
     }
 
@@ -116,5 +120,13 @@ public class RecipeDetailFragment extends Fragment implements StepListAdapter.On
         super.onSaveInstanceState(outState);
         outState.putParcelableArrayList(Constants.INTENT_RECIPES, recipeArrayList);
         outState.putInt(Constants.RECIPE_POSITION, recipeCurrentPosition);
+    }
+
+    private StringBuilder ingredientListStringBuilder(List<Ingredient> ingredientList) {
+        StringBuilder builder = new StringBuilder();
+        for (Ingredient ingredient : ingredientList) {
+            builder.append("Quantity: " + ingredient.getQuantity() + " | " + "Measure: " + ingredient.getMeasure() + " | " + "Ingredient: " + ingredient.getIngredient() + "\n");
+        }
+        return builder;
     }
 }

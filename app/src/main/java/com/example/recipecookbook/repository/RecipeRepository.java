@@ -5,6 +5,7 @@ import android.util.Log;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
+import com.example.recipecookbook.idlingresource.IdlingResourceUtils;
 import com.example.recipecookbook.model.Recipe;
 import com.example.recipecookbook.utils.RecipeJsonApi;
 import com.example.recipecookbook.utils.RecipeResponse;
@@ -28,6 +29,9 @@ public class RecipeRepository {
 
 
     public LiveData<List<Recipe>> getRecipeList() {
+
+        IdlingResourceUtils.setIdlingResourceState(false);
+
         recipeJsonApi.getRecipes().enqueue(new Callback<List<Recipe>>() {
             @Override
             public void onResponse(Call<List<Recipe>> call, Response<List<Recipe>> response) {

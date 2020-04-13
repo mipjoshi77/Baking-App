@@ -9,9 +9,15 @@
     <!-- Recipe Activity RV Dimensions-->
     <dimen name="card_view_layout_margin">16dp</dimen>
     <dimen name="card_view_app_corner_radius">8dp</dimen>
-    <dimen name="recipe_image_layout_height">194dp</dimen>
+    <dimen name="recipe_image_layout_height">250dp</dimen>
     <dimen name="recipe_name_layout_margin_top">200dp</dimen>
-    <dimen name="recipe_name_text_size">22sp</dimen>
+    <dimen name="recipe_name_text_size">28sp</dimen>
+
+    <!--
+Refer to App Widget Documentation for margin information
+http://developer.android.com/guide/topics/appwidgets/index.html#CreatingLayout
+    -->
+    <dimen name="widget_margin">8dp</dimen>
 
 
 </resources>

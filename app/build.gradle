@@ -40,6 +40,8 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    androidTestImplementation 'com.android.support.test:rules:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-contrib:3.2.0'
 
     implementation 'com.squareup.retrofit2:retrofit:2.8.1'
     implementation 'com.squareup.retrofit2:converter-gson:2.8.1'
@@ -56,5 +58,7 @@ dependencies {
     implementation 'com.google.android.exoplayer:exoplayer-ui:2.11.3'
     implementation 'com.google.android.exoplayer:exoplayer-dash:2.11.3'
     implementation 'com.google.android.exoplayer:exoplayer-smoothstreaming:2.11.3'
+
+    implementation 'androidx.test.espresso:espresso-idling-resource:3.2.0'
 
 }

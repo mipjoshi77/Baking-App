@@ -2,4 +2,12 @@
     <string name="app_name">Recipe Cook Book</string>
 
     <string name="error_message">\t\t\tRecipe data not available. \nPlease try again after sometime</string>
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="add_widget">Add widget</string>
+
+
+    <!-- Widget String resources -->
+    <string name="widget_text_default">Ingredient list will appear here once a recipe is selected. So head over to the App!</string>
+
+
 </resources>

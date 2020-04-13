@@ -3,6 +3,7 @@
 <com.google.android.material.card.MaterialCardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/recipe_card"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -27,13 +28,14 @@
             android:id="@+id/recipe_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/recipe_name_layout_margin_top"
+            android:layout_marginTop="4dp"
             android:hint="Nutella Pie"
-            android:textSize="@dimen/recipe_name_text_size"
             android:textAppearance="?attr/textAppearanceBody2"
+            android:textSize="22sp"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/recipe_image" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
