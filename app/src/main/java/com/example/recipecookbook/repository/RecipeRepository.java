@@ -40,9 +40,6 @@ public class RecipeRepository {
                 }
 
                 recipeList.postValue(response.body());
-//                recipeList.setValue(response.body());
-
-//                Log.d("MAVERICK", "test repo-data recipe name: " +recipeList.getValue().get(0).getName());
             }
 
             @Override

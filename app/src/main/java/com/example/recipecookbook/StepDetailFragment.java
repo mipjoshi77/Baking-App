@@ -6,7 +6,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.media.session.MediaSessionCompat;
 import android.support.v4.media.session.PlaybackStateCompat;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -93,7 +92,6 @@ public class StepDetailFragment extends Fragment {
 
         if (savedInstanceState != null) {
             this.currentStep = savedInstanceState.getParcelable("SELECTED_STEP");
-            Log.d("BUNDLE", "Is passing the data, step: " +currentStep);
             this.stepPosition = savedInstanceState.getInt("STEP_POSITION");
         }
 
@@ -292,11 +290,9 @@ public class StepDetailFragment extends Fragment {
         @Override
         public void onPlayerStateChanged(boolean playWhenReady, int playbackState) {
             if((playbackState == ExoPlayer.STATE_READY) && playWhenReady){
-                Log.d("SNIPER", "onPlayerStateChanged: PLAYING");
                 mStateBuilder.setState(PlaybackStateCompat.STATE_PLAYING,
                         exoPlayer.getCurrentPosition(), 1f);
             } else if((playbackState == ExoPlayer.STATE_READY)){
-                Log.d("SNIPER", "onPlayerStateChanged: PAUSED");
                 mStateBuilder.setState(PlaybackStateCompat.STATE_PAUSED,
                         exoPlayer.getCurrentPosition(), 1f);
             }
