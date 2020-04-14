@@ -8,7 +8,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 
 import com.example.recipecookbook.adapters.RecipeListAdapter;
@@ -64,13 +63,9 @@ public class RecipeActivity extends AppCompatActivity implements RecipeListAdapt
         recipeViewModel.getRecipeList().observe(this, new Observer<List<Recipe>>() {
             @Override
             public void onChanged(List<Recipe> recipes) {
-                Log.d("MAVERICK", "test activity-data recipe name: " +recipes.get(0).getName());
                 recipeListAdapter = new RecipeListAdapter(recipes, getApplicationContext(), RecipeActivity.this);
                 recipeRecyclerView.setAdapter(recipeListAdapter);
                 recipeArrayList = new ArrayList<>(recipes);
-                for (Recipe recipe : recipeArrayList) {
-                    Log.d("BOOM", "onChanged: recipe array list " +recipe.getName());
-                }
                 IdlingResourceUtils.setIdlingResourceState(true);
             }
         });

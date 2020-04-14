@@ -2,7 +2,6 @@ package com.example.recipecookbook;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -66,7 +65,6 @@ public class RecipeDetailFragment extends Fragment implements StepListAdapter.On
         binding = RecipeDetailFragmentBinding.inflate(getLayoutInflater());
         ingredientsRecyclerView = binding.recipeIngredientsRv;
         stepsRecyclerView = binding.recipeStepsRv;
-        Log.d("SNIPER", "onCreateView: is this being called twice ? ");
         setIngredientsView();
         setStepsView();
 

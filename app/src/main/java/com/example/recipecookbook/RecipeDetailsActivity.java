@@ -3,7 +3,6 @@ package com.example.recipecookbook;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 
 import androidx.annotation.Nullable;
@@ -61,8 +60,6 @@ public class RecipeDetailsActivity extends AppCompatActivity implements RecipeDe
             recipeArrayList = recipeDataBundle.getParcelableArrayList(Constants.INTENT_RECIPES);
             recipeCurrentPosition = recipeDataBundle.getInt(Constants.RECIPE_POSITION);
             recipe = recipeArrayList.get(recipeCurrentPosition);
-            Log.d("MAVERICK", "onCreate: current position: " +recipeCurrentPosition);
-            Log.d("MAVERICK", "test detail-activity-data recipe name: " +recipe.getName());
 
             ingredientList = recipe.getIngredients();
             stepList = recipe.getSteps();
@@ -120,8 +117,6 @@ public class RecipeDetailsActivity extends AppCompatActivity implements RecipeDe
                     .replace(R.id.recipe_detail_container, recipeDetailFragment)
                     .addToBackStack(RECIPE_DETAIL)
                     .commit();
-
-        Log.d("EUREKA", "setupRecipeDetailFragment: fragment count: " +getSupportFragmentManager().getBackStackEntryCount());
     }
 
     private void setupStepDetailFragment(int position) {
@@ -142,8 +137,6 @@ public class RecipeDetailsActivity extends AppCompatActivity implements RecipeDe
                     .addToBackStack(RECIPE_STEP_DETAIL)
                     .commit();
         }
-
-        Log.d("EUREKA", "passStepClickedDataToActivity: fragment count: " +getSupportFragmentManager().getBackStackEntryCount());
     }
 
     @Override
