@@ -1,6 +1,5 @@
 package com.example.recipecookbook;
 
-import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
 import android.content.ComponentName;
@@ -22,13 +21,6 @@ public class RecipeWidgetProvider extends AppWidgetProvider {
 
         // Construct the RemoteViews object
         RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.recipe_widget_provider);
-
-//        // Create an intent to launch RecipeActivity when clicked
-//        Intent intent = new Intent(context, RecipeActivity.class);
-//        PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent, 0);
-//
-//        // Widgets allow click handlers to only launch pending intents
-//        views.setOnClickPendingIntent(R.id.widget_container_layout, pendingIntent);
 
         views.setTextViewText(R.id.widget_recipe_name, recipeName);
         views.setTextViewText(R.id.widget_recipe_ingredients, ingredientList);

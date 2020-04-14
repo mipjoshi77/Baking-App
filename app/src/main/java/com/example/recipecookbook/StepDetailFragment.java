@@ -48,6 +48,7 @@ public class StepDetailFragment extends Fragment {
     private TextView stepDescription;
     private Button previousStep;
     private Button nextStep;
+    private TextView playerViewDefaultMessage;
 
     private Step currentStep;
     private int stepPosition;
@@ -86,6 +87,7 @@ public class StepDetailFragment extends Fragment {
         stepDescription = binding.stepDescription;
         previousStep = binding.previousStep;
         nextStep = binding.nextStep;
+        playerViewDefaultMessage = binding.playerDefaultMessage;
 
         rootView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
 
@@ -205,13 +207,18 @@ public class StepDetailFragment extends Fragment {
     private void initializeExoPlayer() {
         if (exoPlayer == null) {
             Uri videoUrl = Uri.parse(currentStep.getVideoURL());
-            exoPlayer = new SimpleExoPlayer.Builder(getActivity()).build();
-            playerView.setPlayer(exoPlayer);
-            MediaSource mediaSource = buildMediaSource(videoUrl);
-            exoPlayer.setPlayWhenReady(playWhenReady);
-            exoPlayer.seekTo(currentWindow, playbackPosition);
-            exoPlayer.addListener(playbackStateListener);
-            exoPlayer.prepare(mediaSource, false, false);
+            if (videoUrl != null && !currentStep.getVideoURL().isEmpty()) {
+                exoPlayer = new SimpleExoPlayer.Builder(getActivity()).build();
+                playerView.setPlayer(exoPlayer);
+                MediaSource mediaSource = buildMediaSource(videoUrl);
+                exoPlayer.setPlayWhenReady(playWhenReady);
+                exoPlayer.seekTo(currentWindow, playbackPosition);
+                exoPlayer.addListener(playbackStateListener);
+                exoPlayer.prepare(mediaSource, false, false);
+            }
+            else {
+                playerViewDefaultMessage.setVisibility(View.VISIBLE);
+            }
         }
     }
 

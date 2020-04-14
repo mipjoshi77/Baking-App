@@ -6,7 +6,6 @@ import android.content.Intent;
 
 import androidx.annotation.Nullable;
 
-import java.util.ArrayList;
 
 public class RecipeWidgetService extends IntentService {
     /**

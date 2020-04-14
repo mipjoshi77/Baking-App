@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.material.card.MaterialCardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ingredient_card"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:id="@+id/ingredient_card"
-    android:layout_margin="12dp"
-    app:cardCornerRadius="8dp"
+    android:layout_margin="@dimen/ingredients_list_item_material_card_view_layout_margin"
+    app:cardCornerRadius="@dimen/ingredients_list_item_material_card_view_corner_radius"
     app:strokeColor="@android:color/black"
-    app:strokeWidth="1dp">
+    app:strokeWidth="@dimen/ingredients_list_item_material_card_view_stroke_width">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -20,11 +18,11 @@
             android:id="@+id/quantity_header"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginStart="@dimen/ingredients_list_item_quantity_header_layout_margin_start"
+            android:layout_marginLeft="@dimen/ingredients_list_item_quantity_header_layout_margin_left"
+            android:layout_marginTop="@dimen/ingredients_list_item_quantity_header_layout_margin_top"
             android:hint="Quantity: "
-            android:textSize="18sp"
+            android:textSize="@dimen/ingredients_list_item_quantity_header_text_size"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -33,11 +31,11 @@
             android:id="@+id/quantity_value"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            android:layout_marginLeft="4dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginStart="@dimen/ingredients_list_item_quantity_value_layout_margin_start"
+            android:layout_marginLeft="@dimen/ingredients_list_item_quantity_value_layout_margin_left"
+            android:layout_marginTop="@dimen/ingredients_list_item_quantity_value_layout_margin_top"
             android:hint="2"
-            android:textSize="18sp"
+            android:textSize="@dimen/ingredients_list_item_quantity_value_text_size"
             app:layout_constraintStart_toEndOf="@+id/quantity_header"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -45,11 +43,11 @@
             android:id="@+id/measure_header"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginStart="@dimen/ingredients_list_item_measure_header_margin_start"
+            android:layout_marginLeft="@dimen/ingredients_list_item_measure_header_margin_left"
+            android:layout_marginTop="@dimen/ingredients_list_item_measure_header_margin_top"
             android:hint="Measure: "
-            android:textSize="18sp"
+            android:textSize="@dimen/ingredients_list_item_measure_header_text_size"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/quantity_header" />
@@ -58,11 +56,11 @@
             android:id="@+id/measure_value"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            android:layout_marginLeft="4dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginStart="@dimen/ingredients_list_item_measure_value_margin_start"
+            android:layout_marginLeft="@dimen/ingredients_list_item_measure_value_margin_left"
+            android:layout_marginTop="@dimen/ingredients_list_item_measure_value_margin_top"
             android:hint="CUP"
-            android:textSize="18sp"
+            android:textSize="@dimen/ingredients_list_item_measure_value_text_size"
             app:layout_constraintStart_toEndOf="@+id/measure_header"
             app:layout_constraintTop_toBottomOf="@+id/quantity_value" />
 
@@ -70,11 +68,11 @@
             android:id="@+id/ingredient_header"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginStart="@dimen/ingredients_list_item_ingredient_header_layout_margin_start"
+            android:layout_marginLeft="@dimen/ingredients_list_item_ingredient_header_layout_margin_left"
+            android:layout_marginTop="@dimen/ingredients_list_item_ingredient_header_layout_margin_top"
             android:hint="Ingredient: "
-            android:textSize="18sp"
+            android:textSize="@dimen/ingredients_list_item_ingredients_header_text_size"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/measure_header" />
@@ -83,16 +81,15 @@
             android:id="@+id/ingredient_value"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            android:layout_marginLeft="4dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginStart="@dimen/ingredients_list_item_ingredient_value_layout_margin_start"
+            android:layout_marginLeft="@dimen/ingredients_list_item_ingredient_value_layout_margin_left"
+            android:layout_marginTop="@dimen/ingredients_list_item_ingredient_value_layout_margin_top"
             android:hint="Graham Cracker crumbs"
-            android:textSize="18sp"
+            android:textSize="@dimen/ingredients_list_item_ingredients_value_text_size"
             app:layout_constraintStart_toEndOf="@+id/ingredient_header"
             app:layout_constraintTop_toBottomOf="@+id/measure_value" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 
 
 </com.google.android.material.card.MaterialCardView>

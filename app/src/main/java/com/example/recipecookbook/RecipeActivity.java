@@ -21,7 +21,10 @@ import com.google.android.material.appbar.MaterialToolbar;
 import java.util.ArrayList;
 import java.util.List;
 
-
+/**
+ * Recipe Activity which hosts the recycler view for displaying the recipe cards
+ * @author mjoshi
+ */
 public class RecipeActivity extends AppCompatActivity implements RecipeListAdapter.RecipeItemOnClickHandler {
 
     private RecipeViewModel recipeViewModel;

@@ -1,24 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <TextView
         android:id="@+id/ingredients"
-        android:layout_width="320dp"
+        android:layout_width="@dimen/recipe_detail_fragment_land_ingredients_layout_width"
         android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:layout_marginLeft="4dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="4dp"
-        android:layout_marginRight="4dp"
+        android:layout_marginStart="@dimen/recipe_detail_fragment_land_ingredients_layout_margin_start"
+        android:layout_marginLeft="@dimen/recipe_detail_fragment_land_ingredients_layout_margin_left"
+        android:layout_marginTop="@dimen/recipe_detail_fragment_land_ingredients_layout_margin_top"
+        android:layout_marginEnd="@dimen/recipe_detail_fragment_land_ingredients_layout_margin_end"
+        android:layout_marginRight="@dimen/recipe_detail_fragment_land_ingredients_layout_margin_right"
         android:background="@android:color/black"
         android:gravity="center"
-        android:text="Ingredients"
+        android:text="@string/recipe_detail_fragment_ingredients_header_text"
         android:textColor="@android:color/white"
-        android:textSize="22sp"
+        android:textSize="@dimen/recipe_detail_fragment_land_ingredients_text_size"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/divider_line"
         app:layout_constraintStart_toStartOf="parent"
@@ -26,13 +25,13 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recipe_ingredients_rv"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        android:layout_width="320dp"
-        android:layout_height="280dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginLeft="4dp"
-        android:layout_marginTop="4dp"
+        android:layout_width="@dimen/recipe_detail_fragment_land_recipe_ingredients_rv_layout_width"
+        android:layout_height="@dimen/recipe_detail_fragment_land_recipe_ingredients_rv_layout_height"
+        android:layout_marginStart="@dimen/recipe_detail_fragment_land_recipe_ingredients_rv_layout_margin_start"
+        android:layout_marginLeft="@dimen/recipe_detail_fragment_land_recipe_ingredients_rv_layout_margin_left"
+        android:layout_marginTop="@dimen/recipe_detail_fragment_land_recipe_ingredients_rv_layout_margin_top"
         android:orientation="vertical"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ingredients" />
 
@@ -40,16 +39,16 @@
         android:id="@+id/steps"
         android:layout_width="320dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:layout_marginLeft="4dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="4dp"
-        android:layout_marginRight="4dp"
+        android:layout_marginStart="@dimen/recipe_detail_fragment_land_steps_text_view_layout_margin_start"
+        android:layout_marginLeft="@dimen/recipe_detail_fragment_land_steps_text_view_layout_margin_left"
+        android:layout_marginTop="@dimen/recipe_detail_fragment_land_steps_text_view_layout_margin_top"
+        android:layout_marginEnd="@dimen/recipe_detail_fragment_land_steps_text_view_layout_margin_end"
+        android:layout_marginRight="@dimen/recipe_detail_fragment_land_steps_text_view_layout_margin_right"
         android:background="@android:color/black"
         android:gravity="center"
-        android:text="Steps To Follow"
+        android:text="@string/recipe_detail_fragment_steps_header_text"
         android:textColor="@android:color/white"
-        android:textSize="22sp"
+        android:textSize="@dimen/recipe_detail_fragment_land_steps_text_view_text_size"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/divider_line"
@@ -58,20 +57,17 @@
     <!-- A small divider -->
     <View
         android:id="@+id/divider_line"
-        android:layout_width="1dp"
+        android:layout_width="@dimen/recipe_detail_fragment_land_divider_line_layout_width"
         android:layout_height="match_parent"
         android:background="@android:color/darker_gray"
-        app:layout_constraintStart_toEndOf="@+id/recipe_ingredients_rv"
-        app:layout_constraintEnd_toStartOf="@+id/frameLayout"/>
+        app:layout_constraintEnd_toStartOf="@+id/frameLayout"
+        app:layout_constraintStart_toEndOf="@+id/recipe_ingredients_rv" />
 
     <FrameLayout
         android:id="@+id/frameLayout"
-        android:layout_width="320dp"
-        android:layout_height="280dp"
-        android:layout_margin="8dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="6dp"
-        android:layout_marginRight="6dp"
+        android:layout_width="@dimen/recipe_detail_fragment_land_frame_layout_width"
+        android:layout_height="@dimen/recipe_detail_fragment_land_frame_layout_height"
+        android:layout_margin="@dimen/recipe_detail_fragment_land_frame_layout_margin"
         android:background="@drawable/round_edges"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/steps">
@@ -80,8 +76,7 @@
             android:id="@+id/recipe_steps_rv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:layout_marginTop="32dp"
+            android:layout_margin="@dimen/recipe_detail_fragment_land_recipe_steps_rv_layout_margin"
             app:layout_constraintTop_toBottomOf="@+id/recipe_ingredients_rv" />
     </FrameLayout>
 

@@ -19,6 +19,10 @@ import com.google.android.material.appbar.MaterialToolbar;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Recipe Details activity houses two fragments: RecipeDetailFragment and StepDetailFragment
+ * @author mjoshi
+ */
 public class RecipeDetailsActivity extends AppCompatActivity implements RecipeDetailFragment.PassStepClickedDataToActivity, StepDetailFragment.OnStepChangeListener {
 
     private ArrayList<Recipe> recipeArrayList;
@@ -151,13 +155,4 @@ public class RecipeDetailsActivity extends AppCompatActivity implements RecipeDe
     public void onStepChangeClicked(int position) {
         passStepClickedDataToActivity(position);
     }
-
-    //    @Override
-//    public void onBackPressed() {
-//        int count = getSupportFragmentManager().getBackStackEntryCount();
-//
-//        if (count == 0) super.onBackPressed();
-//        else setupRecipeDetailFragment();
-//    }
-
 }

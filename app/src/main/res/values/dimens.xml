@@ -10,8 +10,139 @@
     <dimen name="card_view_layout_margin">16dp</dimen>
     <dimen name="card_view_app_corner_radius">8dp</dimen>
     <dimen name="recipe_image_layout_height">250dp</dimen>
+    <dimen name="recipe_name_layout_margin_top_phone">4dp</dimen>
     <dimen name="recipe_name_layout_margin_top">200dp</dimen>
+    <dimen name="recipe_name_text_size_phone">22sp</dimen>
     <dimen name="recipe_name_text_size">28sp</dimen>
+
+
+    <!-- Recipe Activity RV LandScape Mode Dimensions-->
+    <dimen name="recipe_rv_list_items_land_material_card_view_layout_width">350dp</dimen>
+    <dimen name="recipe_rv_list_items_land_material_card_view_layout_margin_start">28dp</dimen>
+    <dimen name="recipe_rv_list_items_land_material_card_view_layout_margin_left">28dp</dimen>
+    <dimen name="recipe_rv_list_items_land_material_card_view_layout_margin_top">28dp</dimen>
+    <dimen name="recipe_rv_list_items_land_material_card_view_layout_margin_end">28dp</dimen>
+    <dimen name="recipe_rv_list_items_land_material_card_view_layout_margin_right">28dp</dimen>
+    <dimen name="recipe_rv_list_items_land_material_card_view_layout_margin_bottom">28dp</dimen>
+    <dimen name="recipe_rv_list_items_land_recipe_image_layout_height">250dp</dimen>
+    <dimen name="recipe_rv_list_items_land_recipe_name_layout_margin_top">4dp</dimen>
+    <dimen name="recipe_rv_list_items_land_recipe_name_text_size">25sp</dimen>
+
+
+    <!-- Ingredient List Items Dimensions-->
+    <dimen name="ingredients_list_item_material_card_view_layout_margin">12dp</dimen>
+    <dimen name="ingredients_list_item_material_card_view_corner_radius">8dp</dimen>
+    <dimen name="ingredients_list_item_material_card_view_stroke_width">1dp</dimen>
+    <dimen name="ingredients_list_item_quantity_header_layout_margin_start">8dp</dimen>
+    <dimen name="ingredients_list_item_quantity_header_layout_margin_left">8dp</dimen>
+    <dimen name="ingredients_list_item_quantity_header_layout_margin_top">8dp</dimen>
+    <dimen name="ingredients_list_item_quantity_header_text_size">18sp</dimen>
+    <dimen name="ingredients_list_item_quantity_value_layout_margin_start">4dp</dimen>
+    <dimen name="ingredients_list_item_quantity_value_layout_margin_left">4dp</dimen>
+    <dimen name="ingredients_list_item_quantity_value_layout_margin_top">8dp</dimen>
+    <dimen name="ingredients_list_item_quantity_value_text_size">18sp</dimen>
+    <dimen name="ingredients_list_item_measure_header_margin_start">8dp</dimen>
+    <dimen name="ingredients_list_item_measure_header_margin_left">8dp</dimen>
+    <dimen name="ingredients_list_item_measure_header_margin_top">8dp</dimen>
+    <dimen name="ingredients_list_item_measure_header_text_size">18sp</dimen>
+    <dimen name="ingredients_list_item_measure_value_margin_start">4dp</dimen>
+    <dimen name="ingredients_list_item_measure_value_margin_left">4dp</dimen>
+    <dimen name="ingredients_list_item_measure_value_margin_top">8dp</dimen>
+    <dimen name="ingredients_list_item_measure_value_text_size">18sp</dimen>
+    <dimen name="ingredients_list_item_ingredient_header_layout_margin_start">8dp</dimen>
+    <dimen name="ingredients_list_item_ingredient_header_layout_margin_left">8dp</dimen>
+    <dimen name="ingredients_list_item_ingredient_header_layout_margin_top">8dp</dimen>
+    <dimen name="ingredients_list_item_ingredients_header_text_size">18sp</dimen>
+    <dimen name="ingredients_list_item_ingredient_value_layout_margin_start">4dp</dimen>
+    <dimen name="ingredients_list_item_ingredient_value_layout_margin_left">4dp</dimen>
+    <dimen name="ingredients_list_item_ingredient_value_layout_margin_top">8dp</dimen>
+    <dimen name="ingredients_list_item_ingredients_value_text_size">18sp</dimen>
+
+    <!-- Recipe Detail Fragment Dimensions-->
+    <dimen name="recipe_detail_fragment_ingredients_text_view_layout_margin_start">4dp</dimen>
+    <dimen name="recipe_detail_fragment_ingredients_text_view_layout_margin_left">4dp</dimen>
+    <dimen name="recipe_detail_fragment_ingredients_text_view_layout_margin_top">8dp</dimen>
+    <dimen name="recipe_detail_fragment_ingredients_text_view_layout_margin_end">4dp</dimen>
+    <dimen name="recipe_detail_fragment_ingredients_text_view_layout_margin_right">4dp</dimen>
+    <dimen name="recipe_detail_fragment_ingredients_text_view_text_size">22sp</dimen>
+    <dimen name="recipe_detail_fragment_recipe_ingredients_rv_layout_margin_top">4dp</dimen>
+    <dimen name="recipe_detail_fragment_steps_text_view_layout_margin">4dp</dimen>
+    <dimen name="recipe_detail_fragment_steps_text_view_text_size">22sp</dimen>
+    <dimen name="recipe_detail_fragment_steps_rv_frame_layout_container_layout_height">370dp</dimen>
+    <dimen name="recipe_detail_fragment_steps_rv_frame_layout_container_layout_margin">8dp</dimen>
+    <dimen name="recipe_detail_fragment_recipe_steps_rv_layout_margin">8dp</dimen>
+
+
+    <!-- Recipe Detail Fragment LandScape Mode Dimensions-->
+    <dimen name="recipe_detail_fragment_land_ingredients_layout_width">320dp</dimen>
+    <dimen name="recipe_detail_fragment_land_ingredients_layout_margin_start">4dp</dimen>
+    <dimen name="recipe_detail_fragment_land_ingredients_layout_margin_left">4dp</dimen>
+    <dimen name="recipe_detail_fragment_land_ingredients_layout_margin_top">8dp</dimen>
+    <dimen name="recipe_detail_fragment_land_ingredients_layout_margin_end">4dp</dimen>
+    <dimen name="recipe_detail_fragment_land_ingredients_layout_margin_right">4dp</dimen>
+    <dimen name="recipe_detail_fragment_land_ingredients_text_size">22sp</dimen>
+    <dimen name="recipe_detail_fragment_land_recipe_ingredients_rv_layout_width">320dp</dimen>
+    <dimen name="recipe_detail_fragment_land_recipe_ingredients_rv_layout_height">280dp</dimen>
+    <dimen name="recipe_detail_fragment_land_recipe_ingredients_rv_layout_margin_start">4dp</dimen>
+    <dimen name="recipe_detail_fragment_land_recipe_ingredients_rv_layout_margin_left">4dp</dimen>
+    <dimen name="recipe_detail_fragment_land_recipe_ingredients_rv_layout_margin_top">4dp</dimen>
+    <dimen name="recipe_detail_fragment_land_steps_text_view_layout_width">320dp</dimen>
+    <dimen name="recipe_detail_fragment_land_steps_text_view_layout_margin_start">4dp</dimen>
+    <dimen name="recipe_detail_fragment_land_steps_text_view_layout_margin_left">4dp</dimen>
+    <dimen name="recipe_detail_fragment_land_steps_text_view_layout_margin_top">8dp</dimen>
+    <dimen name="recipe_detail_fragment_land_steps_text_view_layout_margin_end">4dp</dimen>
+    <dimen name="recipe_detail_fragment_land_steps_text_view_layout_margin_right">4dp</dimen>
+    <dimen name="recipe_detail_fragment_land_steps_text_view_text_size">22sp</dimen>
+    <dimen name="recipe_detail_fragment_land_divider_line_layout_width">1dp</dimen>
+    <dimen name="recipe_detail_fragment_land_frame_layout_width">320dp</dimen>
+    <dimen name="recipe_detail_fragment_land_frame_layout_height">280dp</dimen>
+    <dimen name="recipe_detail_fragment_land_frame_layout_margin">8dp</dimen>
+    <dimen name="recipe_detail_fragment_land_recipe_steps_rv_layout_margin">8dp</dimen>
+
+
+    <!-- Recipe Step Fragment Dimensions-->
+    <dimen name="step_detail_fragment_exo_player_layout_height">350dp</dimen>
+    <dimen name="step_detail_fragment_exo_player_padding">8dp</dimen>
+    <dimen name="step_detail_fragment_exo_player_layout_margin">4dp</dimen>
+    <dimen name="step_detail_fragment_step_description_layout_margin_top">32dp</dimen>
+    <dimen name="step_detail_fragment_step_description_layout_margin_left">16dp</dimen>
+    <dimen name="step_detail_fragment_step_description_layout_margin_end">16dp</dimen>
+    <dimen name="step_detail_fragment_step_description_layout_margin_right">16dp</dimen>
+    <dimen name="step_detail_fragment_step_description_layout_margin_start">16dp</dimen>
+    <dimen name="step_detail_fragment_step_description_text_size">25sp</dimen>
+    <dimen name="step_detail_fragment_previous_step_layout_margin_start">8dp</dimen>
+    <dimen name="step_detail_fragment_previous_step_layout_margin_left">8dp</dimen>
+    <dimen name="step_detail_fragment_previous_step_layout_margin_top">32dp</dimen>
+    <dimen name="step_detail_fragment_previous_step_text_size">14sp</dimen>
+    <dimen name="step_detail_fragment_next_step_layout_margin_top">32dp</dimen>
+    <dimen name="step_detail_fragment_next_step_layout_margin_end">8dp</dimen>
+    <dimen name="step_detail_fragment_next_step_layout_margin_right">8dp</dimen>
+    <dimen name="step_detail_fragment_next_step_text_size">14sp</dimen>
+
+
+    <!-- Steps RV List Items Dimensions-->
+    <dimen name="steps_rv_list_items_step_card_layout_margin">12dp</dimen>
+    <dimen name="steps_rv_list_items_step_card_corner_radius">8dp</dimen>
+    <dimen name="steps_rv_list_items_steps_constraint_container">8dp</dimen>
+    <dimen name="steps_rv_list_items_step_number_layout_margin_start">8dp</dimen>
+    <dimen name="steps_rv_list_items_step_number_layout_margin_left">8dp</dimen>
+    <dimen name="steps_rv_list_items_step_number_layout_margin_top">8dp</dimen>
+    <dimen name="steps_rv_list_items_step_number_text_size">18sp</dimen>
+    <dimen name="steps_rv_list_items_step_description_layout_margin_start">4dp</dimen>
+    <dimen name="steps_rv_list_items_step_description_layout_margin_left">4dp</dimen>
+    <dimen name="steps_rv_list_items_step_description_layout_margin_top">8dp</dimen>
+    <dimen name="steps_rv_list_items_step_description_text_size">18sp</dimen>
+
+
+    <!-- Recipe Widget Provider Dimensions-->
+    <dimen name="recipe_widget_provider_widget_default_text_text_size">28sp</dimen>
+    <dimen name="recipe_widget_provider_widget_recipe_name_layout_margin">4dp</dimen>
+    <dimen name="recipe_widget_provider_widget_recipe_name_text_size">24sp</dimen>
+    <dimen name="recipe_widget_provider_widget_recipe_ingredients_layout_margin">8dp</dimen>
+    <dimen name="recipe_widget_provider_widget_recipe_ingredients_text_size">15sp</dimen>
+
+
+
 
     <!--
 Refer to App Widget Documentation for margin information

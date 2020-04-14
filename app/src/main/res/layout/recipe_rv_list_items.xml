@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<com.google.android.material.card.MaterialCardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/recipe_card"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -28,10 +26,9 @@
             android:id="@+id/recipe_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:hint="Nutella Pie"
+            android:layout_marginTop="@dimen/recipe_name_layout_margin_top_phone"
             android:textAppearance="?attr/textAppearanceBody2"
-            android:textSize="22sp"
+            android:textSize="@dimen/recipe_name_text_size_phone"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

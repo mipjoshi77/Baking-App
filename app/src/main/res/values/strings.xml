@@ -6,6 +6,14 @@
     <string name="add_widget">Add widget</string>
 
 
+    <string name="recipe_detail_fragment_ingredients_header_text">Ingredients</string>
+    <string name="recipe_detail_fragment_steps_header_text">Steps To Follow</string>
+
+    <string name="step_detail_fragment_previous_step_button_text">Previous\nStep</string>
+    <string name="step_detail_fragment_next_step_button_text">Next\nStep</string>
+    <string name="step_detail_fragment_player_default_message">Video isn\'t available for this Step</string>
+
+
     <!-- Widget String resources -->
     <string name="widget_text_default">Ingredient list will appear here once a recipe is selected. So head over to the App!</string>
 

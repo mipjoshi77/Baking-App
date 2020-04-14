@@ -10,24 +10,24 @@
         android:id="@+id/widget_default_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="28sp"
         android:text="@string/widget_text_default"
-        android:textColor="@android:color/black" />
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/recipe_widget_provider_widget_default_text_text_size" />
 
     <TextView
         android:id="@+id/widget_recipe_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="4dp"
+        android:layout_margin="@dimen/recipe_widget_provider_widget_recipe_name_layout_margin"
         android:textColor="@android:color/black"
-        android:textSize="24sp"/>
+        android:textSize="@dimen/recipe_widget_provider_widget_recipe_name_text_size" />
 
     <TextView
         android:id="@+id/widget_recipe_ingredients"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="@dimen/recipe_widget_provider_widget_recipe_ingredients_layout_margin"
         android:textColor="@android:color/black"
-        android:layout_margin="8dp"
-        android:textSize="15sp" />
+        android:textSize="@dimen/recipe_widget_provider_widget_recipe_ingredients_text_size" />
 
 </LinearLayout>
