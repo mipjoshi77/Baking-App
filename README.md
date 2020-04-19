@@ -1,5 +1,5 @@
 # Baking-App
-Udacity | Android Developer Nanodegree | Project 2: Sandwich Club
+Udacity | Android Developer Nanodegree | Project 4: Baking App
 
 ### Project Overview:
 You will productionize an app, taking it from a functional state to a production-ready state.
@@ -18,3 +18,9 @@ In this project you will:
 - Add a widget to your app experience.
 - Leverage a third-party library in your app.
 - Use Fragments to create a responsive design that works on phones and tablets.
+
+### Snapshots:
+
+<img src="app-snapshots/Screenshot_1.png" width=250>  <img src="app-snapshots/Screenshot_2.png" width=250> <img src="app-snapshots/Screenshot_3.png" width=250>
+
+<img src="app-snapshots/Screenshot_4.png" width=600>
